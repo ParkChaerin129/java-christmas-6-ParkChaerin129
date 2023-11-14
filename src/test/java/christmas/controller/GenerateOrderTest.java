@@ -3,6 +3,7 @@ package christmas.controller;
 import christmas.message.ErrorMessage;
 import christmas.message.Menu;
 import christmas.model.Order;
+import christmas.view.OutputView;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,7 @@ import java.util.Map;
 public class GenerateOrderTest {
 
     GenerateOrder generateOrder = new GenerateOrder();
+    OutputView outputView = new OutputView();
 
     @Test
     void 올바른_입력(){

@@ -5,18 +5,18 @@ import christmas.model.Day;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
-public class IsValidDate {
+public class GenerateDate {
 
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
-    public Day isValidDate(){
+    public Day generateDate(){
         boolean validInput = false;
         String inputDate = inputView.readDate();
         Day day;
         do{
             try{
-                day = generateDay(inputDate);
+                day = validDay(inputDate);
                 return day;
             }catch(IllegalArgumentException e){
                 outputView.printErrorMessage(e);
@@ -26,7 +26,7 @@ public class IsValidDate {
         return null;
     }
 
-    public Day generateDay(String inputDate){
+    public Day validDay(String inputDate){
         int date;
         try {
             date = Integer.valueOf(inputDate);

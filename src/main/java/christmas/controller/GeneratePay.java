@@ -14,6 +14,10 @@ public class GeneratePay {
     public Pay generatePay(Order order, Day day){
         Pay pay;
         Integer allPrice = calculateAllPrice(order);
+        if(allPrice<10000){
+            pay = new Pay(allPrice);
+            return pay;
+        }
         Integer xmasDDaySale = calculateXmasDDaySale(day);
         Integer daySale = calculateDaySale(order,day);
         pay= new Pay(allPrice,xmasDDaySale,daySale,day.isStarDay());

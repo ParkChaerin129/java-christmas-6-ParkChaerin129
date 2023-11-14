@@ -27,5 +27,15 @@ public class GeneratePayTest {
         Assertions.assertThat(pay.getBenefitPrice()).isEqualTo(31246);
         Assertions.assertThat(pay.getResultPrice()).isEqualTo(135754);
         Assertions.assertThat(pay.getBadge()).isEqualTo("산타");
+        Assertions.assertThat(pay.isSale()).isTrue();
+    }
+
+    @Test
+    void 올바른_혜택_없는_계산(){
+        Day day = generateDate.validDay("26");
+        Order order = generateOrder.validOrder("타파스-1,제로콜라-1");
+        Pay pay =generatePay.generatePay(order,day);
+        Assertions.assertThat(pay.isSale()).isFalse();
+        Assertions.assertThat(pay.getBenefitPrice()).isEqualTo(0);
     }
 }

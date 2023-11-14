@@ -9,6 +9,12 @@ public class Pay {
     private Integer starDaySale=0;
     private Integer benefitPrice=0;
     private String badge="없음";
+    private boolean sale = true;
+
+    public Pay(Integer allPrice){
+        this.sale=false;
+        this.allPrice=allPrice;
+    }
 
     public Pay(Integer allPrice,Integer xmasDDaySale,Integer daySale,boolean starDay){
         this.allPrice = allPrice;
@@ -23,6 +29,9 @@ public class Pay {
         }
         this.benefitPrice += xmasDDaySale+daySale+starDaySale;
         this.badge = calculateBadge(benefitPrice);
+        if(benefitPrice==0){
+            this.sale=false;
+        }
     }
 
     private String calculateBadge(Integer benefitPrice){
@@ -72,4 +81,7 @@ public class Pay {
         return badge;
     }
 
+    public boolean isSale() {
+        return sale;
+    }
 }

@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.AppConfig;
 import christmas.message.ErrorMessage;
 import christmas.model.Day;
 import org.assertj.core.api.Assertions;
@@ -8,7 +9,8 @@ import org.junit.jupiter.api.Test;
 
 public class GenerateDateTest {
 
-    GenerateDate generateDate = new GenerateDate();
+    AppConfig appConfig = new AppConfig();
+    GenerateDate generateDate = appConfig.generateDate();
 
     @Test
     void 올바른_입력(){

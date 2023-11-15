@@ -1,19 +1,19 @@
 package christmas.controller;
 
+import christmas.AppConfig;
 import christmas.message.ErrorMessage;
 import christmas.message.Menu;
 import christmas.model.Order;
 import christmas.view.OutputView;
+import christmas.view.OutputViewImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Map;
-
 public class GenerateOrderTest {
 
-    GenerateOrder generateOrder = new GenerateOrder();
-    OutputView outputView = new OutputView();
+    AppConfig appConfig = new AppConfig();
+    GenerateOrder generateOrder = appConfig.generateOrder();
+    OutputView outputView = appConfig.outputView();
 
     @Test
     void 올바른_입력(){

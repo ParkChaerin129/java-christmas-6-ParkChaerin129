@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.AppConfig;
 import christmas.model.Day;
 import christmas.model.Order;
 import christmas.model.Pay;
@@ -8,11 +9,12 @@ import org.junit.jupiter.api.Test;
 
 public class GeneratePayTest {
 
-    GenerateDate generateDate = new GenerateDate();
-    GenerateOrder generateOrder = new GenerateOrder();
+    AppConfig appConfig = new AppConfig();
+    GenerateDate generateDate = appConfig.generateDate();
+    GenerateOrder generateOrder = appConfig.generateOrder();
 
 
-    GeneratePay generatePay = new GeneratePay();
+    GeneratePay generatePay = appConfig.generatePay();
 
     @Test
     void 올바른_계산(){

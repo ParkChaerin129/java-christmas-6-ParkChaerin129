@@ -22,10 +22,10 @@ public class GenerateOrder {
 
     public Order generateOrder(){
         boolean validInput = false;
-        String inputOrder = inputView.readOrder();
         Order order;
         do{
             try {
+                String inputOrder = inputView.readOrder();
                 order = validOrder(inputOrder);
                 return order;
             }catch (IllegalArgumentException e){
@@ -58,7 +58,7 @@ public class GenerateOrder {
         try{
             amount = Integer.parseInt(menuInfoSplit[1]);}
         catch (Exception e){
-            throw new IllegalArgumentException(ErrorMessage.ERROR_NOT_INTEGER.toString());
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NOT_MENU_INTEGER.toString());
         }
         if(amount <1 | amount>20){
             throw new IllegalArgumentException(ErrorMessage.ERROR_NOT_MENU_RANGE.toString());

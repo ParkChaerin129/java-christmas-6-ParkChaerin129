@@ -26,6 +26,9 @@ public class Order {
         catch(Exception e){
             throw new IllegalArgumentException(ErrorMessage.ERROR_NOT_MENU_NAME.toString());
         }
+        if(order.containsKey(menu)){
+            throw new IllegalArgumentException(ErrorMessage.ERROR_DUPLICATE.toString());
+        }
         order.put(menu,amount);
         allMenuAmount+=amount;
         String kind = menu.getKind();
@@ -51,7 +54,7 @@ public class Order {
     }
 
     public Integer getAmountByMenuKind(String kind){
-        return orderMenuKind.get(kind);
+        return orderMenuKind.getOrDefault(kind,0);
     }
 
 }

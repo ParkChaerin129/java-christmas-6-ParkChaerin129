@@ -26,17 +26,22 @@ public class GenerateDateTest {
         Assertions.assertThat(day3.getDate()).isEqualTo(23);
         Assertions.assertThat(day3.isStarDay()).isFalse();
         Assertions.assertThat(day3.isWeekend()).isTrue();
+
+        Day day4 = generateDate.validDay("1");
+        Assertions.assertThat(day4.getDate()).isEqualTo(1);
+        Assertions.assertThat(day4.isStarDay()).isFalse();
+        Assertions.assertThat(day4.isWeekend()).isTrue();
     }
 
     @Test
     void 정수가_아닌_입력(){
         Assertions.assertThatThrownBy(()-> generateDate.validDay("테스트"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.ERROR_NOT_INTEGER.toString());
+                .hasMessage(ErrorMessage.ERROR_NOT_DAY_INTEGER.toString());
 
         Assertions.assertThatThrownBy(()-> generateDate.validDay("1.1"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.ERROR_NOT_INTEGER.toString());
+                .hasMessage(ErrorMessage.ERROR_NOT_DAY_INTEGER.toString());
     }
 
     @Test

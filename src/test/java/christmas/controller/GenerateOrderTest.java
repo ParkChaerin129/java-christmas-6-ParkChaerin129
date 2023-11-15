@@ -28,6 +28,12 @@ public class GenerateOrderTest {
     }
 
     @Test
+    void 올바른_하나의_입력(){
+        Order order = generateOrder.validOrder("티본스테이크-1");
+        Assertions.assertThat(order.getOrder().get(Menu.티본스테이크)).isEqualTo(1);
+    }
+
+    @Test
     void 음료만_입력(){
         Assertions.assertThatThrownBy(() -> generateOrder.validOrder("제로콜라-1"))
                 .isInstanceOf(IllegalArgumentException.class)

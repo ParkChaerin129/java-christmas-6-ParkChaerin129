@@ -12,10 +12,10 @@ public class GenerateDate {
 
     public Day generateDate(){
         boolean validInput = false;
-        String inputDate = inputView.readDate();
         Day day;
         do{
             try{
+                String inputDate = inputView.readDate();
                 day = validDay(inputDate);
                 return day;
             }catch(IllegalArgumentException e){
@@ -31,7 +31,7 @@ public class GenerateDate {
         try {
             date = Integer.valueOf(inputDate);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.ERROR_NOT_INTEGER.toString());
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NOT_DAY_INTEGER.toString());
         }
         if (date < 1 | date > 31) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NOT_RANGE.toString());
